@@ -1,11 +1,4 @@
 services:
-  web:
-    build: nginx
-    command: /bin/bash -c "nginx -g 'daemon off;'" 
-    ports:
-      - 80:80
-    depends_on:
-      - backend
   backend:
     build: flask
     environment: 
