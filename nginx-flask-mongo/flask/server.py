@@ -14,9 +14,8 @@ def todo():
         client.admin.command('ismaster')
     except:
         return "Environment not available"
-    return "Environment as a service? Bunnyshell NEO can do it!\n"
+    return "Environment as a Service? Flask + Mongo? Bunnyshell NEO can do it!\n"
 
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=os.environ.get("FLASK_SERVER_PORT", 9090), debug=True)
-
