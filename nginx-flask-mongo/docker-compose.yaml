@@ -1,8 +1,6 @@
 services:
   web:
     build: nginx
-    environment: 
-      - FLASK_SERVER_ADDR=backend:9091  
     command: /bin/bash -c "nginx -g 'daemon off;'" 
     ports:
       - 80:80
