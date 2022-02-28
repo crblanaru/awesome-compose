@@ -13,8 +13,8 @@ def todo():
     try:
         client.admin.command('ismaster')
     except:
-        return "Server not available"
-    return "Hello from the MongoDB client!\n"
+        return "Environment not available"
+    return "Environment as a service? Bunnyshell NEO can do it!\n"
 
 
 if __name__ == "__main__":
