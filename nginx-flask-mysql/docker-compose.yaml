@@ -20,9 +20,9 @@ services:
     environment:
       - MYSQL_DATABASE=example
       - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
-    expose:
-      - 3306
-      - 33060
+    ports:
+      - 3306:3306
+      - 33060:33060
   backend:
     build: backend
     restart: always
@@ -36,15 +36,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-  proxy:
-    build: proxy
-    restart: always
-    ports:
-      - 80:80
-    depends_on: 
-      - backend
-    networks:
-      - frontnet
 volumes:
   db-data:
 secrets:
