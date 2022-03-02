@@ -3,10 +3,10 @@ from flask import Flask
 import mysql.connector
 
 class DBManager:
-    def __init__(self, database='example', host="db", user="root", password=None):
+    def __init__(self, database='example', host="db", user="root", passwd=None):
         self.connection = mysql.connector.connect(
             user=user, 
-            password=password,
+            password=passwd,
             host=host, # name of the mysql service as set in the docker-compose file
             database=database,
             auth_plugin='mysql_native_password'
@@ -36,10 +36,13 @@ def listBlog():
     global conn
     if not conn:
         MYSQL_PASS = os.environ.get("MARIADB_PASSWORD")
+        print(MYSQL_PASS)
         if not MYSQL_PASS:
             raise ValueError("No SECRET_KEY set for Flask application")
+        else:
+            raise ValueError(MYSQL_PASS)
             
-        conn = DBManager(password=MYSQL_PASS)
+        conn = DBManager(passwd=MYSQL_PASS)
         conn.populate_db()
     rec = conn.query_titles()
 
