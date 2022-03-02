@@ -35,12 +35,9 @@ conn = None
 def listBlog():
     global conn
     if not conn:
-        MYSQL_PASS = os.environ.get("MARIADB_PASSWORD")
-        print(MYSQL_PASS)
+        MYSQL_PASS = os.environ.get("MARIADB_ROOT_PASSWORD")
         if not MYSQL_PASS:
             raise ValueError("No SECRET_KEY set for Flask application")
-        else:
-            raise ValueError(MYSQL_PASS)
             
         conn = DBManager(passwd=MYSQL_PASS)
         conn.populate_db()
