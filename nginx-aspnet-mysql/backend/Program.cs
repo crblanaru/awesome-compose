@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
@@ -18,7 +19,7 @@ class Program
         {
             app.UseRouting();
                     
-            string password = File.ReadAllText("/run/secrets/db-password");
+            string password = Environment.GetEnvironmentVariable("MYSQL_ROOT_PASSWORD_FILE")
             string connectionString = $"server=db;user=root;database=example;port=3306;password={password}";
 
             app.UseEndpoints(e =>
