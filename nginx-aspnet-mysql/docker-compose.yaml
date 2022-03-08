@@ -7,10 +7,7 @@ services:
     depends_on: 
       - db
     environment:
-      - ASPNETCORE_URLS=http://+:8000
-#    depends_on:
-#      db:
-#        condition: service_healthy
+      - ASPNETCORE_URLS=http://+:80
   db:
     # We use a mariadb image which supports both amd64 & arm64 architecture
     image: mariadb:10.6.4-focal
@@ -30,15 +27,7 @@ services:
     environment:
       - MYSQL_DATABASE=example
       - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
-
-  proxy:
-    build: proxy
     ports:
-      - 80:80
-    depends_on: 
-      - backend
+      - 3306:3306
 volumes:
   db-data:
-secrets:
-  db-password:
-    file: db/password.txt
