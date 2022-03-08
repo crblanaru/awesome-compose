@@ -17,6 +17,7 @@ services:
       - POSTGRES_PASSWORD=nextcloud
       - POSTGRES_DB=nextcloud
       - POSTGRES_USER=nextcloud
+      - PGDATA=/var/lib/postgresql/data/postgress/
     restart: always
     volumes:
       - db_data:/var/lib/postgresql/data
