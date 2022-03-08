@@ -6,6 +6,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 COPY . /src
 WORKDIR /src
 RUN ls
+RUN pwd
 RUN dotnet build "aspnetapp.csproj" -c Release -o /app/build
 
 FROM build AS publish
