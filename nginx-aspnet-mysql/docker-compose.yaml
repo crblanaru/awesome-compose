@@ -8,6 +8,9 @@ services:
       - db
     environment:
       - ASPNETCORE_URLS=http://+:80
+      - MYSQL_ROOT_PASSWORD_FILE=db-q5n2g
+    ports:
+      - 80
   db:
     # We use a mariadb image which supports both amd64 & arm64 architecture
     image: mariadb:10.6.4-focal
@@ -20,14 +23,12 @@ services:
       interval: 3s
       retries: 5
       start_period: 30s
-    secrets:
-      - db-password
     volumes:
       - db-data:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=example
-      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
+      - MYSQL_ROOT_PASSWORD_FILE=db-q5n2g
     ports:
-      - 3306:3306
+      - 3306
 volumes:
   db-data:
