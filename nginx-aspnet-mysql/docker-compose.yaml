@@ -19,7 +19,7 @@ services:
     volumes:
       - db-data:/var/lib/mysql
     environment:
-      - MYSQL_DATABASE=aspnettest
+      - MYSQL_DATABASE=example
       - MYSQL_ROOT_PASSWORD=aspnettest
     ports:
       - 3306
