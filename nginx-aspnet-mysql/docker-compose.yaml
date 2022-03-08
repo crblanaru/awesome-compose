@@ -6,7 +6,7 @@ services:
       - db
     environment:
       - ASPNETCORE_URLS=http://+:80
-      - MYSQL_ROOT_PASSWORD_FILE=db-q5n2g
+      - MYSQL_ROOT_PASSWORD_FILE=aspnettest
     ports:
       - 80
   db:
@@ -16,16 +16,13 @@ services:
     #image: mysql:8.0.27
     command: '--default-authentication-plugin=mysql_native_password'
     restart: always
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
-      interval: 3s
-      retries: 5
-      start_period: 30s
     volumes:
       - db-data:/var/lib/mysql
     environment:
-      - MYSQL_DATABASE=example
-      - MYSQL_ROOT_PASSWORD_FILE=db-q5n2g
+      - MYSQL_DATABASE=aspnettest
+      - MYSQL_USER=aspnettest
+      - MYSQL_ROOT_PASSWORD=aspnettest
+      - MYSQL_PASSWORD=aspnettest
     ports:
       - 3306
 volumes:
