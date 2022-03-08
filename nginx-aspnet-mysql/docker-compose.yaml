@@ -6,7 +6,7 @@ services:
       - db
     environment:
       - ASPNETCORE_URLS=http://+:80
-      - MYSQL_ROOT_PASSWORD_FILE=aspnettest
+      - MYSQL_ROOT_PASSWORD=aspnettest
     ports:
       - 80
   db:
@@ -20,9 +20,7 @@ services:
       - db-data:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=aspnettest
-      - MYSQL_USER=aspnettest
       - MYSQL_ROOT_PASSWORD=aspnettest
-      - MYSQL_PASSWORD=aspnettest
     ports:
       - 3306
 volumes:
