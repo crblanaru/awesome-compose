@@ -20,8 +20,8 @@ services:
     restart: always
     networks:
       - redisnet
-    expose:
-      - 6379
+    ports:
+      - 6379:6379
   db:
     image: mariadb:10.5
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
@@ -35,8 +35,8 @@ services:
       - MYSQL_USER=nextcloud
       - MYSQL_ROOT_PASSWORD=nextcloud
       - MYSQL_PASSWORD=nextcloud
-    expose:
-      - 3306
+    ports:
+      - 3306:3306
 volumes:
   db_data:
   nc_data:
