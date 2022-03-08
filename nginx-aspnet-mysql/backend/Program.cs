@@ -19,7 +19,7 @@ class Program
         {
             app.UseRouting();
                     
-            string password = Environment.GetEnvironmentVariable("MYSQL_ROOT_PASSWORD_FILE")
+            string password = Environment.GetEnvironmentVariable("MYSQL_ROOT_PASSWORD_FILE");
             string connectionString = $"server=db;user=root;database=example;port=3306;password={password}";
 
             app.UseEndpoints(e =>
