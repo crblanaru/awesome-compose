@@ -76,7 +76,7 @@ class Program
             
             for (int i = 0; i < 5; i++)
             {
-                using MySqlCommand insertCommand = new MySqlCommand( $"INSERT INTO blog (title) VALUES ('Blog post #{i}');", connection, transation);
+                using MySqlCommand insertCommand = new MySqlCommand( $"INSERT INTO blog (title) VALUES ('Ephemeral post #{i}');", connection, transation);
                 insertCommand.ExecuteNonQuery();
 	        }
             transation.Commit();
