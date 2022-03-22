@@ -6,4 +6,9 @@ services:
       PORT: 80
     ports:
       - '80:80'
+    deploy:
+      resources:
+        limits:
+          cpus: '1.50'
+          memory: 1024M
 
