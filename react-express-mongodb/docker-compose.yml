@@ -5,7 +5,6 @@ services:
       - 3000:3000
     stdin_open: true
     volumes:
-      - ./frontend:/usr/src/app
       - /usr/src/app/node_modules
     container_name: frontend
     restart: always
