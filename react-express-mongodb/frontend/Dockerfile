@@ -4,6 +4,9 @@ FROM node:lts-buster
 # Create app directory
 WORKDIR /usr/src/app
 
+RUN npm install -g nodemon
+RUN npm install -g react-scripts
+
 # Copy dependency definitions
 COPY package.json /usr/src/app
 COPY package-lock.json /usr/src/app
@@ -12,7 +15,6 @@ COPY package-lock.json /usr/src/app
 #RUN npm set progress=false \
 #    && npm config set depth 0 \
 #    && npm i install
-RUN npm i react-scripts
 RUN npm install
 
 # Get all the code needed to run the app
