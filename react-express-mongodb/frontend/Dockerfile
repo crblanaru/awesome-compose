@@ -12,9 +12,7 @@ COPY package-lock.json /usr/src/app
 #RUN npm set progress=false \
 #    && npm config set depth 0 \
 #    && npm i install
-RUN npm ci
-RUN npm uninstall react-scripts
-run npm install -D react-scripts
+RUN npm install
 
 # Get all the code needed to run the app
 COPY . /usr/src/app
@@ -23,4 +21,4 @@ COPY . /usr/src/app
 EXPOSE 3000
 
 # Serve the app
-CMD ["npm", "start"]
+CMD [ "node", "server.js" ]
