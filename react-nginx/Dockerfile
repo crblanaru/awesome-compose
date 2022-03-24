@@ -1,5 +1,5 @@
 # 1. For build React app
-FROM node:lts AS development
+FROM node:lts
 
 # Set working directory
 WORKDIR /app
