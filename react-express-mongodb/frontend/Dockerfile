@@ -21,4 +21,4 @@ COPY . /usr/src/app
 EXPOSE 3000
 
 # Serve the app
-CMD ["npm", "start"]
+CMD ["./node_modules/.bin/react-scripts", "start"]
