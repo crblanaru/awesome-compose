@@ -4,8 +4,6 @@ services:
     ports:
       - 3000:3000
     stdin_open: true
-    volumes:
-      - /usr/src/app/node_modules
     container_name: frontend
     restart: always
     networks:
@@ -17,9 +15,6 @@ services:
     container_name: backend
     restart: always
     build: backend
-    volumes:
-      - ./backend:/usr/src/app
-      - /usr/src/app/node_modules
     depends_on:
       - mongo
     networks:
