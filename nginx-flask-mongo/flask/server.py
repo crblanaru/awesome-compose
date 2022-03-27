@@ -14,9 +14,7 @@ def todo():
         client.admin.command('ismaster')
     except:
         return "Environment not available"
-    bgcolour1 = "powerblue"
-    bgcolour2 = "blue"
-    return ("<!DOCTYPE html><html><body style='background-color:%s;'>Environment as a Service? Flask + Mongo? Bunnyshell NEO can do it!</body></html>" % bgcolour1)
+    return ("You are up and running with your Neo environment. Happy coding!")
 
 
 if __name__ == "__main__":
