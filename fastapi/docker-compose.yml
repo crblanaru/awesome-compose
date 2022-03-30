@@ -6,9 +6,8 @@ services:
       PORT: 80
     ports:
       - '80:80'
-    deploy:
-      resources:
-        limits:
-          cpus: '0.50'
-          memory: 512M
-
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '6379:6379'
