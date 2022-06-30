@@ -5,5 +5,8 @@ services:
       - '5000:5000'
     volumes:
       - demo:/mnt/test
+  nginx:
+    image: nginx
+    command: 'echo 1'
 volumes:
   demo:
