@@ -3,3 +3,7 @@ services:
     build: app 
     ports: 
       - '5000:5000'
+    volumes:
+      - demo:/mnt/test
+volumes:
+  demo:
